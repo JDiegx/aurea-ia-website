@@ -1,9 +1,10 @@
 import React from 'react'
+import Home from './pages/Home/Home.jsx'
 
 function App() {
   return (
     <>
-      <h1>Welcome to React</h1>
+      <Home />
     </>
   )
 }
