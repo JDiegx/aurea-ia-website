@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Header from '../../components/Header/Header.jsx'
 
-// Variantes para animaciones escalonadas
+
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: (i) => ({
@@ -15,17 +15,17 @@ const textVariants = {
 const Home = () => {
   return (
     <>
-      <section className='relative overflow-hidden w-full h-[670px] bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-white'>
-        <div className='w-full h-[60px] flex justify-start items-center'>
-          <img src="/pyme-up-white-logo.png" className='w-20 ml-4' alt="Logo of PymeUp" />
-        </div>
-        <div className='w-full flex flex-col justify-evenly items-center'>
+      <section className='relative overflow-hidden w-full h-[670px] bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-white sm:h-[830px] xl:h-dvh'>
+        <header className='w-full h-[60px] flex justify-start items-center'>
+          <img src="/pyme-up-white-logo.png" className='w-20 ml-4 sm:w-[88px] xl:w-[90px]' alt="Logo of PymeUp" />
+        </header>
+        <div className='w-full flex flex-col justify-evenly items-center mb-[20px] sm:mb-[40px] lg:mb-[30px]'>
           <motion.h1
             custom={0}
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className='text-[50px] font-normal'
+            className='text-[50px] font-normal sm:text-[60px] md:text-[65px] lg:text-[80px] xl:text-[90px]'
           >
             Revolutionize
           </motion.h1>
@@ -34,7 +34,7 @@ const Home = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className='text-[35px] mt-[-20px] font-medium'
+            className='text-[35px] mt-[-20px] font-medium sm:text-[37px] sm:mt-[-23px] md:text-[40px] md:mt-[-25px] lg:text-[50px] lg:mt-[-30px] xl:text-[55px] xl:mt-[-35px]'
           >
             Your SMEs.
           </motion.h2>
@@ -43,7 +43,7 @@ const Home = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className='w-[300px] text-[13px] text-center mt-[-5px]'
+            className='w-[300px] text-[13px] text-center mt-[-5px] sm:w-[320px] sm:text-[14px] md:w-[360px] md:text-[15px] xl:w-[450px] xl:text-[18px]'
           >
             Uncover hidden expenses, save smarter, and make decisions based on real data.
           </motion.p>
@@ -52,12 +52,12 @@ const Home = () => {
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className='w-[220px] h-11 font-medium mt-4 border-2 rounded-2xl cursor-pointer transition ease-in-out hover:bg-white hover:border-2 hover:text-[#3B3AEF]'
+            className='w-[220px] h-11 font-medium mt-4 border-2 rounded-2xl cursor-pointer transition ease-in-out hover:bg-white hover:border-2 hover:text-[#3B3AEF] lg:mt-5'
           >
             I’m Ready to Grow
           </motion.button>
         </div>
-        <div className='w-[250px] h-[80px] rounded-r-xl flex justify-evenly items-center bg-white absolute left-0 top-[490px] shadow-lg z-10 overflow-hidden'>
+        <div className='w-[250px] h-[80px] rounded-r-xl flex justify-evenly items-center bg-white absolute left-0 top-[490px] shadow-lg z-10 overflow-hidden md:top-[600px] lg:top-[650px]'>
           <div className='w-[100px] h-[80px] flex flex-col items-center justify-evenly'>
             <div className='w-full h-[23px] flex justify-evenly items-center mb-[-15px]'>
               {[...Array(5)].map((_, index) => (
@@ -80,9 +80,9 @@ const Home = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
-          className='w-[350px] m-auto'
+          className='w-[350px] m-auto xl:w-[370px]'
         />
-        <div className="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-white to-transparent z-0" />
+        <div className="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-white to-transparent z-0" ></div>
       </section>
       <Header />
     </>
