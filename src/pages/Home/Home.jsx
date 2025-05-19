@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header.jsx";
 
 const textVariants = {
@@ -51,15 +52,19 @@ const Home = () => {
             Uncover hidden expenses, save smarter, and make decisions based on
             real data.
           </motion.p>
-          <motion.button
+          <motion.div
             custom={3}
             initial="hidden"
             animate="visible"
             variants={textVariants}
-            className="w-[220px] h-11 font-medium mt-4 border-2 rounded-2xl cursor-pointer transition ease-in-out hover:bg-white hover:border-2 hover:text-[#3B3AEF] lg:mt-5"
           >
-            I’m Ready to Grow
-          </motion.button>
+            <Link
+              to="/slides"
+              className="w-[220px] h-11 flex items-center justify-center font-medium mt-4 border-2 rounded-2xl cursor-pointer transition ease-in-out hover:bg-white hover:border-2 hover:text-[#3B3AEF] lg:mt-5"
+            >
+              I’m Ready to Grow
+            </Link>
+          </motion.div>
         </div>
         <div className="w-[250px] h-[80px] rounded-r-xl flex justify-center items-center gap-[8px] bg-white absolute left-0 top-[490px] shadow-lg z-10 overflow-hidden md:top-[600px] lg:w-[260px] xl:w-[270px] xl:top-auto xl:bottom-[40px] xl:bg-transparent xl:shadow-none">
           <div className="w-[100px] h-[80px] flex flex-col items-center justify-evenly">
