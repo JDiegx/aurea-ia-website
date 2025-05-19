@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <>
       <header className='w-full h-16 bg-white shadow-md sticky top-0 flex justify-between items-center px-[15px]'>
-        <div className='w-[110px]'>
+        <div className='w-[100px]'>
           <img src="/pyme-up-gray-logo.png" alt="Gray logo of PymeUp" />
         </div>
         <button onClick={() => { openMenu() }}>
