@@ -15,7 +15,7 @@ const textVariants = {
 const Home = () => {
   return (
     <>
-      <section className="relative overflow-hidden w-full h-[670px] bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-white sm:h-[780px] xl:h-[950px]">
+      <section className="relative overflow-hidden w-full h-[670px] bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-[#222189] sm:h-[780px] xl:h-[100vh]">
         <header className="w-full h-[60px] flex justify-start items-center">
           <img
             src="/pyme-up-white-logo.png"
@@ -99,7 +99,7 @@ const Home = () => {
           transition={{ duration: 1, delay: 1 }}
           className="w-[350px] m-auto xl:w-[370px]"
         />
-        <div className="absolute bottom-0 left-0 w-full h-[400px] bg-gradient-to-t from-white to-transparent z-0"></div>
+        <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-white to-transparent z-0 xl:h-[400px]"></div>
       </section>
       <Header />
     </>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import SideBarMobile from '../SideBarMobile/SideBarMobile.jsx'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <header className='w-full h-16 bg-white shadow-md sticky top-0 flex justify-between items-center px-[15px]'>
+      <header className='w-full h-16 bg-white shadow-md sticky top-0 flex justify-between items-center px-[15px] xl:px-[20px]'>
         <div className='w-[90px]'>
           <img src="/pyme-up-gray-logo.png" alt="Gray logo of PymeUp" />
         </div>
@@ -24,20 +25,24 @@ const Header = () => {
             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
           </svg>
         </button>
-          <nav className='hidden md:flex'>
-            <ul className='w-[380px] text-[#555555] font-semibold flex justify-evenly items-center'>
-              <li>Home</li>
-              <li>Problems</li>
-              <li>Solutions</li>
-              <li>About</li>
-              <li>Blog</li>
-              <li>Team</li>
-            </ul>
-          </nav>
-          <button className="hidden md:block w-[180px] h-11 font-medium bg-[#555555] border-2 rounded-2xl cursor-pointer transition ease-in-out hover:bg-white hover:border-2 hover:text-[#555555]" >I’m Ready to Grow</button>
+        <nav className='hidden md:flex'>
+          <ul className='w-[370px] mr-[-50px] font-medium flex justify-between items-center xl:w-[400px]'>
+            <li className='text-[15px] cursor-pointer text-[#555555] hover:text-[#5555557e]'>Home</li>
+            <li className='text-[15px] cursor-pointer text-[#555555] hover:text-[#5555557e]'>Problems</li>
+            <li className='text-[15px] cursor-pointer text-[#555555] hover:text-[#5555557e]'>Solutions</li>
+            <li className='text-[15px] cursor-pointer text-[#555555] hover:text-[#5555557e]'>About</li>
+            <li className='text-[15px] cursor-pointer text-[#555555] hover:text-[#5555557e]'>Blog</li>
+            <li className='text-[15px] cursor-pointer text-[#555555] hover:text-[#5555557e]'>Team</li>
+          </ul>
+        </nav>
+        <button className="hidden md:block w-[170px] text-[14px] h-[37px] font-normal bg-[#555555] text-white rounded-2xl border-2 border-[#555555] cursor-pointer transition-colors duration-200 ease-in-out hover:bg-white hover:text-[#555555]">
+          <Link to="/slides">
+            I’m Ready to Grow
+          </Link>
+        </button>
       </header>
       <SideBarMobile isOpen={isOpen} closeMenu={closeMenu} />
-      <main className='w-full h-[800px]'>
+      <main className='w-full h-[1200px]'>
       </main>
     </>
   )
