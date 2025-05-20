@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Chat = () => {
@@ -6,12 +6,24 @@ const Chat = () => {
         { from: 'bot', text: '¡Hola! ¿En qué puedo ayudarte hoy?' }
     ]);
     const [input, setInput] = useState('');
+    const [loading, setLoading] = useState(false);
+    const messagesEndRef = useRef(null);
+
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages, loading]);
 
     const sendMessage = async () => {
         if (!input.trim()) return;
 
         const userMessage = { from: 'user', text: input };
         setMessages(prev => [...prev, userMessage]);
+        setInput(''); // ✅ Limpiar el input inmediatamente después de enviar
+        setLoading(true);
 
         try {
             const res = await fetch('https://apipymeup-933872953103.us-central1.run.app/chat/financiero', {
@@ -24,13 +36,18 @@ const Chat = () => {
             });
 
             const data = await res.json();
-            const botMessage = { from: 'bot', text: data.response || 'Lo siento, no entendí tu mensaje.' };
+            const botText =
+                data?.choices?.[0]?.message?.content ||
+                'Lo siento, no entendí tu mensaje.';
+
+            const botMessage = { from: 'bot', text: botText };
             setMessages(prev => [...prev, botMessage]);
         } catch (error) {
+            console.error('Error al obtener respuesta del bot:', error);
             setMessages(prev => [...prev, { from: 'bot', text: 'Ocurrió un error. Intenta nuevamente.' }]);
+        } finally {
+            setLoading(false);
         }
-
-        setInput('');
     };
 
     const handleKeyDown = (e) => {
@@ -40,7 +57,9 @@ const Chat = () => {
     return (
         <div className="w-screen h-screen bg-[#f9f9f9] flex flex-col font-sans text-[#555555cc]">
             <header className="h-[70px] bg-white border-b px-6 flex items-center justify-between shadow-sm">
-                <h2 className="text-xl font-semibold text-gray-800">Pyme<span className="font-bold text-blue-600">Up</span></h2>
+                <h2 className="text-xl font-semibold text-gray-800">
+                    Aurea<span className="font-bold text-blue-600">IA</span>
+                </h2>
             </header>
             <main className="flex-1 overflow-y-auto px-4 py-6 space-y-4">
                 {messages.map((msg, i) => (
@@ -58,6 +77,19 @@ const Chat = () => {
                         {msg.text}
                     </motion.div>
                 ))}
+
+                {loading && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ repeat: Infinity, duration: 1 }}
+                        className="bg-gray-100 text-gray-500 text-sm px-4 py-2 rounded-2xl w-fit self-start"
+                    >
+                        <span className="animate-pulse">Escribiendo<span className="animate-bounce">...</span></span>
+                    </motion.div>
+                )}
+
+                <div ref={messagesEndRef} />
             </main>
             <footer className="px-4 py-3 bg-white border-t flex items-center">
                 <input
@@ -72,6 +104,7 @@ const Chat = () => {
                     whileTap={{ scale: 0.95 }}
                     onClick={sendMessage}
                     className="ml-3 text-blue-600 text-xl"
+                    disabled={loading}
                 >
                     ➤
                 </motion.button>
