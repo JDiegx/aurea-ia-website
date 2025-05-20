@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from '../pages/Home/Home.jsx'
 import NotFound from '../pages/NotFound/NotFound.jsx'
+import Chat from '../pages/Chat/Chat.jsx'
 
 const AppRouter = () => {
   return (
@@ -10,6 +11,7 @@ const AppRouter = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/home" element={<Home/>} />
         <Route path="*" element={<NotFound/>} />
+        <Route path="/chat" element={<Chat/>} />
       </Routes>
     </>
   )
