@@ -19,7 +19,7 @@ const Home = () => {
         <header className="w-full h-[60px] flex justify-start items-center">
           <img
             src="/pyme-up-white-logo.png"
-            className="w-20 ml-4 sm:w-[88px] xl:w-[90px]"
+            className="w-[90px] ml-4  xl:w-[100px]"
             alt="Logo of PymeUp"
           />
         </header>
