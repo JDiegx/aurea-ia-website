@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header.jsx";
+import PowerBy from "../../components/PowerBy/PowerBy.jsx";
 
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -102,6 +103,7 @@ const Home = () => {
         <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-white to-transparent z-0 xl:h-[400px]"></div>
       </section>
       <Header />
+      <PowerBy />
     </>
   );
 };

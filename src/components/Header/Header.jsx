@@ -42,7 +42,7 @@ const Header = () => {
         </button>
       </header>
       <SideBarMobile isOpen={isOpen} closeMenu={closeMenu} />
-      <main className='w-full h-[1200px]'>
+      <main className='w-full h-[700px]'>
       </main>
     </>
   )
