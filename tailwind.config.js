@@ -4,6 +4,10 @@ export const content = [
     './src/**/*.{js,ts,jsx,tsx}', // o './src/**/*.{html,js}' dependiendo de tu estructura
 ];
 export const theme = {
-    extend: {},
+    extend: {
+        fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      }
+    }
 };
 export const plugins = [];
