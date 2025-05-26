@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <header className='w-full h-16 bg-white shadow-md sticky top-0 flex justify-between items-center px-[16px] xl:px-[20px]'>
+      <header className='w-full h-16 backdrop-blur-2xl shadow-md sticky top-0 flex justify-between items-center px-[16px] xl:px-[20px]'>
         <div className='w-[100px]'>
           <img src="/aurea-ia-gray-logo.png" alt="Gray logo of PymeUp" />
         </div>
@@ -35,11 +35,11 @@ const Header = () => {
             <li className='text-[15px] cursor-pointer text-[#555555] transition ease-in-out hover:text-[#5555557e]'>Team</li>
           </ul>
         </nav>
-        <button className="hidden md:block w-[170px] text-[14px] h-[37px] font-normal bg-[#555555] text-white rounded-2xl border-2 border-[#555555] cursor-pointer transition-colors duration-200 ease-in-out hover:bg-white hover:text-[#555555]">
-          <Link to="/slides">
+        <Link to="/slides" className='hidden md:block'>
+          <button className="w-[170px] text-[14px] h-[37px] font-normal bg-[#555555] text-white rounded-2xl border-2 border-[#555555] cursor-pointer transition-colors duration-200 ease-in-out hover:bg-white hover:text-[#555555]">
             I’m Ready to Grow
-          </Link>
-        </button>
+          </button>
+        </Link>
       </header>
       <SideBarMobile isOpen={isOpen} closeMenu={closeMenu} />
     </>
