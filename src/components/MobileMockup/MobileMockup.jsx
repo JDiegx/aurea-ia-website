@@ -12,7 +12,7 @@ const MobileMockup = () => {
                 transition={{ duration: 1, delay: 1 }}
                 className="w-[350px] m-auto xl:w-[370px]"
             />
-            <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-white to-transparent z-0 xl:h-[450px]"></div>
+            <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-white to-transparent z-0 xl:h-[400px]"></div>
         </>
     )
 }
