@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <header className='w-full h-16 backdrop-blur-2xl shadow-md sticky top-0 flex justify-between items-center px-[16px] xl:px-[20px]'>
+      <header className='w-full h-16 backdrop-blur-2xl bg-[#ffffff73] shadow-md sticky top-0 flex justify-between items-center px-[16px] xl:px-[20px]'>
         <div className='w-[100px]'>
           <img src="/aurea-ia-gray-logo.png" alt="Gray logo of PymeUp" />
         </div>
