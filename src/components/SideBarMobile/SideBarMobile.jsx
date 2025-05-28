@@ -10,7 +10,7 @@ const SideBarMobile = ({ isOpen, closeMenu }) => {
     { icon: <Info size={20} />, label: "About", to: "/about" },
     { icon: <FileText size={20} />, label: "Blog", to: "/blog" },
     { icon: <Users size={20} />, label: "Team", to: "/team" },
-    { icon: <Rocket size={20} />, label: "I’m Ready to Grow", to: "/chat" },
+    { icon: <Rocket size={20} />, label: "I’m Ready to Grow", to: "/slides" },
   ];
 
   return (
