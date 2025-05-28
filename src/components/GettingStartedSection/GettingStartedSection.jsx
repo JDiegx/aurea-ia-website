@@ -3,7 +3,7 @@ import React from 'react'
 const GettingStartedSection = ({userPhoto ,tittle, description, userTestimony, userName}) => {
     return (
         <div className='w-full max-w-[440px] font-[Poppins] flex flex-col justify-center items-center lg:max-w-[500px]'>
-            <div className='w-[90%] h-[320px] bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-[#222189] mx-auto rounded-3xl p-5 lg:h-[300px]'>
+            <div className='w-[90%] h-[320px] bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-[#222189] mx-auto rounded-3xl p-5 lg:p-5 lg:h-[300px]'>
                 <h4 className='lg:w-[365px] text-[24px] lg:text-[28px]'>{tittle}</h4>
                 <p className='lg:w-[365px] text-[15px] lg:text-[16px]'>{description}</p>
             </div>

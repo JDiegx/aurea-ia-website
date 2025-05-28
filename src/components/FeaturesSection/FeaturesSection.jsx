@@ -2,7 +2,7 @@ import FeatureCard from "../../components/FeatureCard/FeatureCard";
 
 const FeaturesSection = () => {
     return (
-        <div className="w-full h-[380px] flex flex-col items-center justify-evenly md:h-[250px] md:flex-row md:flex-wrap md:justify-around lg:justify-between xl:justify-evenly px-[30px] lg:h-[140px] ">
+        <div className="w-full h-[380px] mx-auto max-w-[1300px] flex flex-col items-center justify-evenly md:h-[250px] md:flex-row md:flex-wrap md:justify-around lg:justify-between xl:justify-evenly px-[30px] lg:h-[140px] ">
             <FeatureCard
                 icon={
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-mortarboard-fill" viewBox="0 0 16 16">
