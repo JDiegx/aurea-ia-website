@@ -16,8 +16,8 @@ const textVariants = {
     transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
   }),
 };
-
 const Home = () => {
+  const Motion = motion;
   return (
     <>
       <section className="relative overflow-hidden w-full h-[670px] bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-[#222189] sm:h-[780px] xl:h-[100vh]">
@@ -71,16 +71,21 @@ const Home = () => {
       <section>
         <Header />
         <FeaturesSection />
-        <div className="w-full h-[200px] font-[Poppins] flex justify-center items-center md:h-[200px]">
+        <div className="w-full h-[200px] font-[Poppins] flex justify-center items-center md:h-[150px]">
           <p className="w-[280px] text-center text-[22px] font-medium text-[#555555] sm:w-[600px] sm:text-[21px] md:text-[23px] xl:w-[700px] xl:text-[26px]">
             <span className="text-[#222189]">Aurea</span> Not only manages, it teaches you to make financial decisions like an expert.
           </p>
         </div>
         <HowItWorksSection />
       </section>
-      <main className="w-full h-[800px]">
-
-      </main>
+      <section className="w-full h-[100px] flex justify-center items-center mt-[50px]">
+        <img src="/power-by-mistral.png" className="w-[230px]" alt="" />
+      </section>
+      <section className="w-full h-[100px] flex justify-center items-center">
+        <p className="text-[16px] font-medium text-[#555555b7]">
+          ©2025 Aurea. All rights reserved.
+        </p>
+      </section>
     </>
   );
 };
