@@ -7,6 +7,7 @@ import MobileMockup from "../../components/MobileMockup/MobileMockup.jsx";
 import Header from "../../components/Header/Header.jsx";
 import FeaturesSection from "../../components/FeaturesSection/FeaturesSection.jsx";
 import HowItWorksSection from "../../components/HowItWorksSection/HowItWorksSection.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
 
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -86,6 +87,7 @@ const Home = () => {
           ©2025 Aurea. All rights reserved.
         </p>
       </section>
+      <Footer />
     </>
   );
 };

@@ -8,6 +8,8 @@ const HowItWorksSection = () => {
   const [ref1, inView1] = useInView({ triggerOnce: true, threshold: 0.2 })
   const [ref2, inView2] = useInView({ triggerOnce: true, threshold: 0.2 })
 
+  const Motion = motion;
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
