@@ -73,11 +73,14 @@ const Home = () => {
         <FeaturesSection />
         <div className="w-full h-[200px] font-[Poppins] flex justify-center items-center md:h-[200px]">
           <p className="w-[280px] text-center text-[22px] font-medium text-[#555555] sm:w-[600px] sm:text-[21px] md:text-[23px] xl:w-[700px] xl:text-[26px]">
-            <span className="text-[#222189]">Aurea.IA</span> Not only manages, it teaches you to make financial decisions like an expert.
+            <span className="text-[#222189]">Aurea</span> Not only manages, it teaches you to make financial decisions like an expert.
           </p>
         </div>
         <HowItWorksSection />
       </section>
+      <main className="w-full h-[800px]">
+
+      </main>
     </>
   );
 };
