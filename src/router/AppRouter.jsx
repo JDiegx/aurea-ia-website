@@ -4,6 +4,7 @@ import Home from '../pages/Home/Home.jsx'
 import NotFound from '../pages/NotFound/NotFound.jsx'
 import Chat from '../pages/Chat/Chat.jsx'
 import Slides from '../components/Slides/Slides.jsx'
+import Login from '../pages/Login/Login.jsx'
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <Route path="*" element={<NotFound/>} />
         <Route path="/chat" element={<Chat/>} />
         <Route path="/slides" element={<Slides/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
     </>
   )
