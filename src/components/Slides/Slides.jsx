@@ -50,7 +50,7 @@ const Slides = () => {
 
     return (
         <section className='w-full h-screen bg-gradient-to-b from-[#3B3AEF] to-[#222189] relative overflow-hidden'>
-            <header className='w-full h-[50px] flex justify-end items-center pr-2.5'>
+            <header className='w-full h-[50px] flex justify-end items-center pr-3'>
                 <img src="/aurea-ia-white-logo.png" className='w-[80px]' alt="Logo PymeUp" />
             </header>
             <main className='absolute bottom-0 w-full h-[60%] bg-white rounded-t-3xl flex flex-col items-center text-[#171835]  pt-[70px] transition-all duration-500'>
