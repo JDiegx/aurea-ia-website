@@ -9,6 +9,7 @@ const SignUp = () => {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
+    const [success, setSuccess] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -24,13 +25,21 @@ const SignUp = () => {
         try {
             const response = await signupUser({ name, email, password })
             setLoading(false)
+            setSuccess(true)
+            setName('')
+            setEmail('')
+            setPassword('')
             console.log('User registered:', response)
+            setTimeout(() => setSuccess(false), 4000)
         } catch (err) {
             setLoading(false)
             setError(err.message)
             setTimeout(() => setError(null), 4000)
         }
     }
+
+    const baseInputClass = 'text-[15px] h-[45px] rounded-[10px] px-3 focus:outline-none focus:ring-2 w-[90%]'
+    const ringClass = success ? 'focus:ring-green-400/40' : 'focus:ring-[#3B3AEF]/40'
 
     return (
         <section className='w-full h-auto bg-gradient-to-b'>
@@ -44,7 +53,7 @@ const SignUp = () => {
                 <input
                     type='text'
                     placeholder='Your Name'
-                    className='bg-[#b1b1b11e] text-[15px] w-[90%] h-[45px] rounded-[10px] px-3 mt-5 focus:outline-none focus:ring-2 focus:ring-[#3B3AEF]/40'
+                    className={`bg-[#b1b1b11e] ${baseInputClass} mt-5 ${ringClass}`}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
@@ -54,7 +63,7 @@ const SignUp = () => {
                 <input
                     type='email'
                     placeholder='Email'
-                    className='bg-[#b1b1b11e] text-[15px] w-[90%] h-[45px] rounded-[10px] px-3 mt-5 focus:outline-none focus:ring-2 focus:ring-[#3B3AEF]/40'
+                    className={`bg-[#b1b1b11e] ${baseInputClass} mt-5 ${ringClass}`}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
@@ -65,7 +74,7 @@ const SignUp = () => {
                     <input
                         type={showPassword ? 'text' : 'password'}
                         placeholder='Password'
-                        className='bg-[#b1b1b12f] text-[15px] w-full h-[45px] rounded-[10px] px-3 pr-10 focus:outline-none focus:ring-2 focus:ring-[#3B3AEF]/40'
+                        className={`bg-[#b1b1b12f] text-[15px] w-full h-[45px] rounded-[10px] px-3 pr-10 focus:outline-none focus:ring-2 ${ringClass}`}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -75,39 +84,13 @@ const SignUp = () => {
                         className='absolute right-3 top-1/2 transform -translate-y-1/2 text-[#aaa] hover:text-[#5a68f5] transition-colors duration-200 p-1 focus:outline-none'
                         aria-label={showPassword ? 'Hide password' : 'Show password'}>
                         {showPassword ? (
-                            <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                className='h-5 w-5'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                stroke='currentColor'
-                                strokeWidth={1.5}
-                            >
-                                <path
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
-                                    d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'
-                                />
-                                <path
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
-                                    d='M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z'
-                                />
+                            <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={1.5}>
+                                <path strokeLinecap='round' strokeLinejoin='round' d='M15 12a3 3 0 11-6 0 3 3 0 016 0z' />
+                                <path strokeLinecap='round' strokeLinejoin='round' d='M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z' />
                             </svg>
                         ) : (
-                            <svg
-                                xmlns='http://www.w3.org/2000/svg'
-                                className='h-5 w-5'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                stroke='currentColor'
-                                strokeWidth={1.5}
-                            >
-                                <path
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
-                                    d='M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a10.05 10.05 0 012.154-3.364m2.21-1.997A9.969 9.969 0 0112 5c4.477 0 8.268 2.943 9.542 7a10.056 10.056 0 01-4.182 5.211m-5.245-5.246l5.245 5.246M3 3l18 18'
-                                />
+                            <svg xmlns='http://www.w3.org/2000/svg' className='h-5 w-5' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={1.5}>
+                                <path strokeLinecap='round' strokeLinejoin='round' d='M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a10.05 10.05 0 012.154-3.364m2.21-1.997A9.969 9.969 0 0112 5c4.477 0 8.268 2.943 9.542 7a10.056 10.056 0 01-4.182 5.211m-5.245-5.246l5.245 5.246M3 3l18 18' />
                             </svg>
                         )}
                     </button>
@@ -116,8 +99,13 @@ const SignUp = () => {
                     Use at least 6 characters with a mix of letters and numbers.
                 </p>
                 {error && (
-                    <div className='mt-2 w-[90%] min-h-[40px] text-center transition-opacity duration-300'>
-                        <p className='text-red-600 text-sm'>{error}</p>
+                    <div className='mt-6 w-[90%] min-h-[40px] text-center transition-opacity duration-300'>
+                        <p className='text-red-600 font-semibold text-sm'>{error}</p>
+                    </div>
+                )}
+                {success && (
+                    <div className='mt-6 w-[90%] min-h-[40px] text-center transition-opacity duration-300'>
+                        <p className='text-green-600 font-semibold text-[16px]'>Account created successfully!</p>
                     </div>
                 )}
                 <p className='w-[90%] text-[15px] font-medium mt-4'>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { loginUser } from '../../services/loginServices'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [user, setUser] = useState('')
@@ -8,6 +8,7 @@ const Login = () => {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -23,7 +24,13 @@ const Login = () => {
     try {
       const data = await loginUser(user, password)
       setLoading(false)
-      alert(`Login successful. Token: ${data.token}`)
+
+      // Guardar token en localStorage para mantener sesión
+      localStorage.setItem('token', data.token)
+
+      // Redirigir a dashboard tras login exitoso
+      navigate('/dashboard')
+
       console.log('Backend response:', data)
     } catch (err) {
       setLoading(false)
