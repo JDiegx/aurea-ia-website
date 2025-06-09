@@ -33,16 +33,14 @@ const SignUp = () => {
     }
 
     return (
-        <section className='w-full h-auto bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-[#222189]'>
+        <section className='w-full h-auto bg-gradient-to-b'>
             <form
                 onSubmit={handleSubmit}
-                className='w-full h-[850px] bg-white flex flex-col items-center text-[#171835] mt-[40px] mx-auto'
-            >
-                <h1 className='text-[45px] font-bold'>Create Account</h1>
+                className='w-full max-w-[450px] h-[850px] bg-white flex flex-col items-center text-[#171835] mt-[50px] mx-auto'>
+                <h1 className='text-[40px] font-bold md:text-[50px]'>Create Account</h1>
                 <p className='w-[90%] text-[16px] mt-[-5px] font-medium text-center'>
                     Sign up to start using Aurea.
                 </p>
-
                 <input
                     type='text'
                     placeholder='Your Name'
@@ -53,7 +51,6 @@ const SignUp = () => {
                 <p className='w-[90%] ml-3 text-xs text-[#888] font-light mt-1 select-none'>
                     Enter your full name as it will appear on your profile.
                 </p>
-
                 <input
                     type='email'
                     placeholder='Email'
@@ -64,7 +61,6 @@ const SignUp = () => {
                 <p className='w-[90%] ml-3 text-xs text-[#888] font-light mt-1 select-none'>
                     We'll use this email to send you important updates.
                 </p>
-
                 <div className='relative w-[90%] mt-5'>
                     <input
                         type={showPassword ? 'text' : 'password'}
@@ -77,8 +73,7 @@ const SignUp = () => {
                         type='button'
                         onClick={() => setShowPassword(!showPassword)}
                         className='absolute right-3 top-1/2 transform -translate-y-1/2 text-[#aaa] hover:text-[#5a68f5] transition-colors duration-200 p-1 focus:outline-none'
-                        aria-label={showPassword ? 'Hide password' : 'Show password'}
-                    >
+                        aria-label={showPassword ? 'Hide password' : 'Show password'}>
                         {showPassword ? (
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -120,19 +115,16 @@ const SignUp = () => {
                 <p className='w-[90%] ml-3 text-xs text-[#888] font-light mt-1 select-none'>
                     Use at least 6 characters with a mix of letters and numbers.
                 </p>
-
                 {error && (
                     <div className='mt-2 w-[90%] min-h-[40px] text-center transition-opacity duration-300'>
                         <p className='text-red-600 text-sm'>{error}</p>
                     </div>
                 )}
-
                 <p className='w-[90%] text-[15px] font-medium mt-4'>
                     By signing up, you agree to Aurea's{' '}
                     <span className='underline'>Terms of Use</span> and{' '}
                     <span className='underline'>Privacy Policy.</span>
                 </p>
-
                 <button
                     type='submit'
                     disabled={loading}
@@ -142,7 +134,6 @@ const SignUp = () => {
                 >
                     {loading ? 'Creating...' : 'Create account'}
                 </button>
-
                 <div className='w-[85%] flex justify-center items-center mt-[30px]'>
                     <p className='text-[15px] font-medium'>
                         Already have an account?{' '}
@@ -151,18 +142,15 @@ const SignUp = () => {
                         </Link>
                     </p>
                 </div>
-
                 <div className='flex items-center w-[90%] mt-7 mb-3'>
                     <div className='flex-grow h-px bg-[#b1b1b1] opacity-30' />
                     <span className='mx-2 text-[#b1b1b1] text-sm font-medium'>or</span>
                     <div className='flex-grow h-px bg-[#b1b1b1] opacity-30' />
                 </div>
-
                 <button className='w-[90%] h-[50px] border border-[#b1b1b1] bg-[#b1b1b11a] rounded-[10px] flex items-center justify-center gap-3 text-[#171835] font-medium transition-all duration-200'>
                     <img src='/icons/Google__G__logo.svg.webp' alt='Google' className='w-5 h-5' />
                     <span className='text-[15px]'>Sign Up with Google</span>
                 </button>
-
                 <section className='w-full h-[100px] flex justify-center items-center'>
                     <p className='text-[15px] font-medium text-[#555555b7]'>©2025 Aurea. All rights reserved.</p>
                 </section>

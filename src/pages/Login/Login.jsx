@@ -35,10 +35,10 @@ const Login = () => {
   }
 
   return (
-    <section className='w-full h-auto bg-gradient-to-b from-[#3B3AEF] via-[#3B3AEF] to-[#222189]'>
+    <section className='w-full h-auto bg-white'>
       <form
         onSubmit={handleSubmit}
-        className='w-full h-[750px] bg-white flex flex-col items-center text-[#171835] mt-[40px] mx-auto'
+        className='w-full max-w-[450px] h-[750px] flex flex-col items-center text-[#171835] mt-[50px] mx-auto'
       >
         <h1 className='text-[45px] font-bold'>Hello!</h1>
         <p className='w-[90%] text-[16px] mt-[-5px] font-medium text-center'>
