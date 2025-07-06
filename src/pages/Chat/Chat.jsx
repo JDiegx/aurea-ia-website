@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { sendChatMessage } from '../../services/chatService.js'; 
 
 const Chat = () => {
     const [messages, setMessages] = useState([
-        { from: 'bot', text: '¡Hola! ¿En qué puedo ayudarte hoy?' }
+        { from: 'bot', text: '¡Hola! ¿En qué puedo ayudarte hoy?' },
     ]);
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
@@ -17,41 +18,32 @@ const Chat = () => {
         scrollToBottom();
     }, [messages, loading]);
 
-    const sendMessage = async () => {
+    const handleSendMessage = async () => {
         if (!input.trim()) return;
 
         const userMessage = { from: 'user', text: input };
-        setMessages(prev => [...prev, userMessage]);
-        setInput(''); // ✅ Limpiar el input inmediatamente después de enviar
+        setMessages((prev) => [...prev, userMessage]);
+        setInput('');
         setLoading(true);
 
+        const token = localStorage.getItem('token'); 
+
         try {
-            const res = await fetch('https://apipymeup-933872953103.us-central1.run.app/chat/financiero', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    conversation_id: 'financ1',
-                    prompt: input
-                })
-            });
-
-            const data = await res.json();
-            const botText =
-                data?.choices?.[0]?.message?.content ||
-                'Lo siento, no entendí tu mensaje.';
-
+            const botText = await sendChatMessage(input, token);
             const botMessage = { from: 'bot', text: botText };
-            setMessages(prev => [...prev, botMessage]);
+            setMessages((prev) => [...prev, botMessage]);
         } catch (error) {
-            console.error('Error al obtener respuesta del bot:', error);
-            setMessages(prev => [...prev, { from: 'bot', text: 'Ocurrió un error. Intenta nuevamente.' }]);
+            setMessages((prev) => [
+                ...prev,
+                { from: 'bot', text: error.message },
+            ]);
         } finally {
             setLoading(false);
         }
     };
 
     const handleKeyDown = (e) => {
-        if (e.key === 'Enter') sendMessage();
+        if (e.key === 'Enter') handleSendMessage();
     };
 
     return (
@@ -68,11 +60,10 @@ const Chat = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
-                        className={`rounded-2xl px-4 py-2 max-w-[80%] text-sm ${
-                            msg.from === 'bot'
+                        className={`rounded-2xl px-4 py-2 max-w-[80%] text-sm ${msg.from === 'bot'
                                 ? 'bg-gray-100 text-gray-900 self-start'
                                 : 'bg-blue-600 text-white self-end ml-[120px]'
-                        }`}
+                            }`}
                     >
                         {msg.text}
                     </motion.div>
@@ -85,7 +76,9 @@ const Chat = () => {
                         transition={{ repeat: Infinity, duration: 1 }}
                         className="bg-gray-100 text-gray-500 text-sm px-4 py-2 rounded-2xl w-fit self-start"
                     >
-                        <span className="animate-pulse">Escribiendo<span className="animate-bounce">...</span></span>
+                        <span className="animate-pulse">
+                            Escribiendo<span className="animate-bounce">...</span>
+                        </span>
                     </motion.div>
                 )}
 
@@ -102,7 +95,7 @@ const Chat = () => {
                 />
                 <motion.button
                     whileTap={{ scale: 0.95 }}
-                    onClick={sendMessage}
+                    onClick={handleSendMessage}
                     className="ml-3 text-blue-600 text-xl"
                     disabled={loading}
                 >
